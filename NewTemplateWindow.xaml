@@ -1,0 +1,68 @@
+﻿<!-- Template Manager
+    
+    Title: NewTemplateWindow.xaml
+    Date: January 6, 2019
+    Author: Andy Joshi
+    Version: 2.0
+    Copyright: 2018 Andy Joshi -->
+    
+<Window x:Class="TemplateManager.NewTemplateWindow"
+        
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TemplateManager"
+        mc:Ignorable="d"
+        
+        Title="Format"
+        ResizeMode="CanMinimize"
+        SizeToContent="WidthAndHeight"
+        WindowStartupLocation="CenterScreen">
+
+    <!-- Universal Window Properties Across All Controls -->
+    <Window.Resources>
+        <Style BasedOn="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" 
+               TargetType="Button"/>
+        <Style BasedOn="{StaticResource {x:Static ToolBar.RadioButtonStyleKey}}"
+               TargetType="RadioButton" />
+        <Style TargetType="{x:Type Window}">
+            <Setter Property="FontSize"
+                    Value="12"/>
+            <Setter Property="FontFamily" 
+                    Value="Proxima Nova"/>
+        </Style>
+    </Window.Resources>
+
+    <StackPanel Margin="10">
+        <TextBlock Text="Select a format:"/>
+
+        <RadioButton x:Name="ChkMSExcel"
+                     GroupName="Format"
+                     Margin="20 10 0 0"
+                     HorizontalAlignment="Left"
+                     Content="Microsoft Excel"/>
+
+        <RadioButton x:Name="ChkMSWord"
+                     GroupName="Format"
+                     Margin="20 10 0 0"
+                     HorizontalAlignment="Left"
+                     Content="Microsoft Word"/>
+
+        <Button x:Name="BtnSaveTemplate"
+                Click="BtnSaveTemplate_Click"
+                
+                ToolTipService.ShowDuration="5000"
+                ToolTip="Pick where to save the new template in the Templates folder."
+                
+                Margin="120 12 0 0"
+                Height="25"
+                Width="60"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Right"    
+                
+                Background="LightGray"
+                BorderBrush="DarkGray"
+                Content="Save As"/>
+    </StackPanel>
+</Window>
